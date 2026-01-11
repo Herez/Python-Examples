@@ -1,17 +1,17 @@
-import os # Importa o módulo para interagir com o sistema operacional
+import os # Importa o mÃ³dulo para interagir com o sistema operacional
 
-# 1. Define a string a ser adicionada e o diretório
+# 1. Define a string a ser adicionada e o diretÃ³rio
 STRING_PREFIXO = "Herez "
 DIRETORIO = "/root/Downloads/" # Altere para o caminho da sua pasta
 
-# Verifica se o diretório existe
+# Verifica se o diretÃ³rio existe
 if not os.path.exists(DIRETORIO):
-    print(f"Diretório '{DIRETORIO}' não encontrado.")
+    print(f"DiretÃ³rio '{DIRETORIO}' nÃ£o encontrado.")
 else:
     print(f"Processando arquivos em: {DIRETORIO}")
-    # 2. Lista todos os arquivos no diretório
+    # 2. Lista todos os arquivos no diretÃ³rio
     for nome_arquivo in os.listdir(DIRETORIO):
-        # 3. Verifica se é um arquivo e se termina com .txt
+        # 3. Verifica se Ã© um arquivo e se termina com .txt
         if nome_arquivo.endswith(".pdf") and os.path.isfile(os.path.join(DIRETORIO, nome_arquivo)):
             # 4. Cria o novo nome do arquivo usando f-string para concatenar
             novo_nome = f"{STRING_PREFIXO}{nome_arquivo}"
@@ -22,17 +22,10 @@ else:
 
             # 6. Renomeia o arquivo
             try:
-                os.rename(caminho_antigo, caminho_novo)
-                print(f"Renomeado: '{nome_arquivo}' -> '{novo_nome}'")
+                if not nome_arquivo.startswith(STRING_PREFIXO):
+                    os.rename(caminho_antigo, caminho_novo)
+                    print(f"Renomeado: '{nome_arquivo}' -> '{novo_nome}'")
             except Exception as e:
                 print(f"Erro ao renomear {nome_arquivo}: {e}")
 
-    print("Processo concluído.")
-
-# Como funciona:
-# ====================================================================================================================    
-# import os: Traz funções para lidar com arquivos e pastas.
-# os.listdir(DIRETORIO): Lista todos os itens dentro da pasta.
-# os.path.join(DIRETORIO, nome_arquivo): Cria o caminho completo do arquivo (ex: ./meus_arquivos/meu_arquivo.txt).
-# f"{STRING_PREFIXO}{nome_arquivo}": Uma f-string para criar o novo nome, juntando "NOVO_" com o nome antigo.
-# os.rename(caminho_antigo, caminho_novo): A função que faz a renomeação no sistema. 
+    print("Processo concluÃ­do.")
