@@ -1,8 +1,10 @@
 Exemplos em Python
 =============
 
-1-AVL
++ Regressão Linear
 
-2-Incluir prefixo nos nomes dos arquivos de uma pasta por tipo de arquivo
++ AVL
 
-3-Regressão Linear
++ Incluir prefixo nos nomes dos arquivos de uma pasta por tipo de arquivo
+
+
